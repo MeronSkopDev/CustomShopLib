@@ -28,4 +28,4 @@ This will open the shop's bottom sheet over the current activity.
 The app contains two UI modules: `ShopBottomSheet` and `ShopWebViewBottomSheet`. Both use the MVVM design pattern. Both UI modules use dependency injection and handle process death.
 
 ## The Use of WebView
-The `ShopWebViewBottomSheet` opens a locally sourced HTML file from the assets library. Using the `WebViewClient`, I inject a title into the HTML that follows the `PurchaseDetails`, and using a bridge, we let the WebView run a function from our app to receive a callback that tells us the purchase is done.
+The `ShopWebViewBottomSheet` opens a locally sourced HTML file from the assets folder. Using the `WebViewClient`, I inject a title into the HTML that follows the `PurchaseDetails`, and using a bridge, we let the WebView run a function from our app to receive a callback that tells us the purchase is done.
