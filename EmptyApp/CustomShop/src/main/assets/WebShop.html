@@ -1,0 +1,27 @@
+<html>
+<body bgcolor="red">
+<center>
+    <h1 id="title"> Title </h1>
+    <br/>
+    <input id="name" type="text" placeholder="Please enter your name"/>
+    <br/>
+    <br/>
+    <input id="card_number" type="text" placeholder="Please enter your card number"/>
+    <br/>
+    <br/>
+    <button onclick="done();">onclick</button>
+</body>
+<script type="text/javascript">
+    function done(){
+        var name=document.getElementById("name").value;
+        PurchaseInterface.purchaseFinish(name);
+    }
+</script>
+<script>
+    function setTitle(title) {
+        document.getElementById("title").innerHTML = title;
+    }
+</script>
+</html>
+
+
