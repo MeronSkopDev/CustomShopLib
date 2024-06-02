@@ -17,7 +17,7 @@ import com.example.customshop.UIModules.Factories.BundleArgs;
 public class ShopWebViewBottomSheetViewModel extends ViewModel {
     public final WebViewClient webViewClient;
     public final String shopUrl = "file:///android_asset/WebShop.html";
-    private final String titleInjection;
+    private String titleInjection;
     private final PurchaseDetails purchaseDetails;
     private final ShopOpener.ShopResult result;
     private MutableLiveData<Void> purchaseEndMutableLiveData = new MutableLiveData<>();
@@ -32,7 +32,7 @@ public class ShopWebViewBottomSheetViewModel extends ViewModel {
             throw new IllegalStateException("Result and PurchaseDetails must be provided in order to instantiate: " + this.getClass());
         }
 
-        this.titleInjection = "javascript:setTitle('" + purchaseDetails.title + "')";
+        defineJavaScriptInjections();
         webViewClient = new WebViewClient() {
             public void onPageFinished(WebView view, String url) {
                 view.loadUrl(titleInjection);
@@ -44,5 +44,9 @@ public class ShopWebViewBottomSheetViewModel extends ViewModel {
     public void purchaseFinish(String name) {
         purchaseEndMutableLiveData.postValue(null);
         result.onPurchaseSuccessful(new PurchaseResult("Purchase succeeded"));
+    }
+
+    private void defineJavaScriptInjections() {
+        this.titleInjection = "javascript:setTitle('" + purchaseDetails.title + "')";
     }
 }
