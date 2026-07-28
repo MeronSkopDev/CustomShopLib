@@ -1,5 +1,3 @@
-Here is the corrected text:
-
 # CustomShopLib
 To use the app, import `com.example.customshop.ShopOpener` for the `ShopOpener` object and use it to open the desired bottom sheet like so:
 ```Java
